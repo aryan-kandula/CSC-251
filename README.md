@@ -1,2 +1,3 @@
 # CSC-251
-Advanced JAVA Programming
+# Advanced JAVA Programming
+## Aryan Kandula
