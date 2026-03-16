@@ -1,0 +1,20 @@
+TYPE,CATEGORY,FIELD1,FIELD2,FIELD3,FIELD4,FIELD5,FIELD6
+STORE,item,Chicken Feed (50 lb),18.99,20,,,
+STORE,item,Rabbit Pellets (10 lb),12.49,15,,,
+STORE,item,Duck Starter Feed (25 lb),14.99,10,,,
+STORE,item,Animal Water Feeder,9.99,8,,,
+STORE,item,Hay Bale (small),7.5,25,,,
+STORE,item,Pet Carrier (medium),34.99,5,,,
+STORE,item,Fencing Wire (50 ft),22.0,12,,,
+STORE,item,Milk,20.0,13,,,
+STORE,item,Milk Ice Cream,10.0,28,,,
+ANIMAL,animal,Duck,Pekin,15.0,Farm,false,
+ANIMAL,animal,Duck,Mallard,18.0,Farm,false,
+ANIMAL,animal,Chicken,Rhode Island Red,12.0,Farm,false,
+ANIMAL,animal,Chicken,Silkie,20.0,Sunrise Breeders,false,
+ANIMAL,animal,Hamster,Syrian,10.0,Farm,false,
+ANIMAL,animal,Rabbit,Holland Lop,45.0,Valley Breeders,false,
+ANIMAL,animal,Rabbit,Mini Rex,40.0,Farm,false,
+SERVICE,record,John Smith,Dog,Wellness Checkup,45.0,02/10/2026,true
+SERVICE,record,Maria Lopez,Rabbit,Vaccination,30.0,02/15/2026,false
+SERVICE,record,Tom Harris,Chicken,Wound Treatment,25.0,02/18/2026,false
