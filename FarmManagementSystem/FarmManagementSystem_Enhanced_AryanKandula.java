@@ -34,6 +34,8 @@ import java.time.format.DateTimeFormatter;
  *  [03/17/2026 - 11:05 AM] Aryan Kandula  - sellItem(): low-stock warning when remaining qty
  *                                            drops to 2 or fewer units after a sale
  *  [03/17/2026 - 12:38 PM] Aryan Kandula  - buildReport(): show generated timestamp in header
+ *  [03/17/2026 - 2:15 PM]  Aryan Kandula  - seedData(): added 4th sample service, 2 of 4 paid
+ *                                            for a more realistic default demo state
  * -------------------------------------------------------
  */
 
@@ -1729,11 +1731,14 @@ static void seedData() {
     animals.add(new Animal("Rabbit",  "Holland Lop",      45.00, "Valley Breeders"));
     animals.add(new Animal("Rabbit",  "Mini Rex",         40.00, "Farm"));
 
-    services.add(new ServiceRecord("John Smith",  "Dog",     "Wellness Checkup", 45.00, "02/10/2026"));
-    services.add(new ServiceRecord("Maria Lopez", "Rabbit",  "Vaccination",      30.00, "02/15/2026"));
-    services.add(new ServiceRecord("Tom Harris",  "Chicken", "Wound Treatment",  25.00, "02/18/2026"));
+    services.add(new ServiceRecord("John Smith",   "Dog",     "Wellness Checkup", 45.00, "02/10/2026"));
+    services.add(new ServiceRecord("Maria Lopez",  "Rabbit",  "Vaccination",      30.00, "02/15/2026"));
+    services.add(new ServiceRecord("Tom Harris",   "Chicken", "Wound Treatment",  25.00, "02/18/2026"));
+    services.add(new ServiceRecord("Sarah Wilson", "Goat",    "Deworming",        20.00, "03/05/2026"));
+    // 2 of 4 records paid — gives a realistic mix of settled and outstanding invoices on first load
     services.get(0).markPaid();
-    revenue += 45.00;
+    services.get(2).markPaid();
+    revenue += 45.00 + 25.00;
 }
 
 }
