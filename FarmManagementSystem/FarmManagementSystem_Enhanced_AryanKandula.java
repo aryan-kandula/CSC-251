@@ -8,35 +8,31 @@ import java.io.*;
 import java.util.Scanner;
 
 /**
-
-- Farm Management System
-- Author: Aryan Kandula
-- 
-- Enhanced personal project — manages store inventory, animal sales,
-- veterinary services, and business reporting for a small family farm.
-- 
-- -----
-- Edit History
-- -----
-- [02/16/2026 - 4:22 PM]  Aryan Kandula  - Project created, base class structure
-- [02/19/2026 - 6:47 PM]  Aryan Kandula  - Store module, Animal Sales module
-- [02/24/2026 - 5:15 PM]  Aryan Kandula  - Services & Payments, reports, seed data
-- [02/27/2026 - 7:03 PM]  Aryan Kandula  - Farm-themed GUI, custom dialogs, FarmButton
-- [02/28/2026 - 5:41 PM]  Aryan Kandula  - File I/O: loadFromCSV() and saveToCSV()
-- [03/01/2026 - 9:00 AM]  Aryan Kandula  - Auto-save on exit, inline editing, status bar
-- [03/15/2026 - 2:00 PM]  Aryan Kandula  - Full UI overhaul: fixed table headers, removed
-- ```
-                                         broken emoji, auto-save toggle, modern look,
-  ```
-- ```
-                                         fixed row-index bugs with filter row maps
-  ```
-- [03/16/2026 - 10:14 AM] Aryan Kandula  - addItem(): duplicate name guard added
-- [03/16/2026 - 11:52 AM] Aryan Kandula  - Reports: avg sale price stats for animals
-- [03/16/2026 - 2:47 PM]  Aryan Kandula  - scheduleService(): MM/DD/YYYY regex date validation
-- -----
-
-*/
+ * Farm Management System
+ * Author: Aryan Kandula
+ *
+ * Enhanced personal project — manages store inventory, animal sales,
+ * veterinary services, and business reporting for a small family farm.
+ *
+ * -------------------------------------------------------
+ *  Edit History
+ * -------------------------------------------------------
+ *  [02/16/2026 - 4:22 PM]  Aryan Kandula  - Project created, base class structure
+ *  [02/19/2026 - 6:47 PM]  Aryan Kandula  - Store module, Animal Sales module
+ *  [02/24/2026 - 5:15 PM]  Aryan Kandula  - Services & Payments, reports, seed data
+ *  [02/27/2026 - 7:03 PM]  Aryan Kandula  - Farm-themed GUI, custom dialogs, FarmButton
+ *  [02/28/2026 - 5:41 PM]  Aryan Kandula  - File I/O: loadFromCSV() and saveToCSV()
+ *  [03/01/2026 - 9:00 AM]  Aryan Kandula  - Auto-save on exit, inline editing, status bar
+ *  [03/15/2026 - 2:00 PM]  Aryan Kandula  - Full UI overhaul: fixed table headers, removed
+ *                                            broken emoji, auto-save toggle, modern look,
+ *                                            fixed row-index bugs with filter row maps
+ *  [03/16/2026 - 10:14 AM] Aryan Kandula  - addItem(): duplicate name guard added
+ *  [03/16/2026 - 11:52 AM] Aryan Kandula  - Reports: avg sale price stats for animals
+ *  [03/16/2026 - 2:47 PM]  Aryan Kandula  - scheduleService(): MM/DD/YYYY regex date validation
+ *  [03/17/2026 - 11:05 AM] Aryan Kandula  - sellItem(): low-stock warning when remaining qty
+ *                                            drops to 2 or fewer units after a sale
+ * -------------------------------------------------------
+ */
 
 // ============================================================
 //  DATA CLASSES
@@ -47,7 +43,6 @@ private String name;
 private double price;
 private int    quantity;
 
-```
 public StoreItem(String name, double price, int quantity) {
     this.name = name; this.price = price; this.quantity = quantity;
 }
@@ -65,7 +60,6 @@ public String toCSV() {
 @Override public String toString() {
     return String.format("%-28s $%-8.2f Qty: %d", name, price, quantity);
 }
-```
 
 }
 
@@ -74,7 +68,6 @@ private String  type, breed, source;
 private double  salePrice;
 private boolean sold = false;
 
-```
 public Animal(String type, String breed, double salePrice, String source) {
     this.type = type; this.breed = breed; this.salePrice = salePrice; this.source = source;
 }
@@ -99,7 +92,6 @@ public String toCSV() {
     return String.format("%-10s %-20s $%-8.2f %-18s %s",
         type, breed, salePrice, source, sold ? "[SOLD]" : "[Available]");
 }
-```
 
 }
 
@@ -108,7 +100,6 @@ private String  customerName, animalType, serviceType, date;
 private double  fee;
 private boolean paid = false;
 
-```
 public ServiceRecord(String customer, String animal, String service, double fee, String date) {
     this.customerName = customer; this.animalType = animal;
     this.serviceType  = service;  this.fee = fee; this.date = date;
@@ -136,7 +127,6 @@ public String toCSV() {
     return String.format("%-18s %-10s %-18s $%-7.2f %-12s %s",
         customerName, animalType, serviceType, fee, date, paid ? "[PAID]" : "[UNPAID]");
 }
-```
 
 }
 
@@ -168,7 +158,6 @@ static final Color BG          = new Color(246, 242, 225);
 static final Color ROW_A       = new Color(255, 252, 235);
 static final Color ROW_B       = new Color(248, 244, 218);
 
-```
 static final Color STATUS_OK   = new Color(38,  145, 62);
 static final Color STATUS_WARN = new Color(192, 136, 18);
 static final Color STATUS_ERR  = new Color(172, 40,  40);
@@ -188,7 +177,6 @@ static final Font SMALL_B = new Font("Dialog", Font.BOLD,   11);
 static final Font MONO    = new Font("Monospaced", Font.PLAIN, 12);
 static final Font TBL_HDR = new Font("Dialog", Font.BOLD,   12);
 static final Font TBL_ROW = new Font("Dialog", Font.PLAIN,  12);
-```
 
 }
 
@@ -202,7 +190,6 @@ private float        anim = 0f;
 private boolean      hov  = false;
 private javax.swing.Timer animTimer;
 
-```
 public FarmButton(String text, Color base) {
     super(text);
     this.base = base;
@@ -259,7 +246,6 @@ protected void paintComponent(Graphics g) {
     g2.dispose();
     super.paintComponent(g);
 }
-```
 
 }
 
@@ -271,7 +257,6 @@ class FarmBackground extends JPanel {
 private float         cloudX = 0f;
 private javax.swing.Timer cloudTimer;
 
-```
 public FarmBackground() {
     cloudTimer = new javax.swing.Timer(36, e -> {
         cloudX = (cloudX + 0.32f) % 640f;
@@ -385,7 +370,6 @@ private void drawFlowers(Graphics2D g2, int w, int h) {
         g2.fillOval(xs[i] - 4, ys[i] - 4, 8, 8);
     }
 }
-```
 
 }
 
@@ -398,7 +382,6 @@ class FarmHeaderRenderer extends DefaultTableCellRenderer {
 public Component getTableCellRendererComponent(
 JTable t, Object val, boolean sel, boolean foc, int row, int col) {
 
-```
     final String text = val == null ? "" : val.toString();
     JLabel lbl = new JLabel(text, SwingConstants.LEFT) {
         @Override
@@ -425,7 +408,6 @@ JTable t, Object val, boolean sel, boolean foc, int row, int col) {
     lbl.setPreferredSize(new Dimension(lbl.getPreferredSize().width, 34));
     return lbl;
 }
-```
 
 }
 
@@ -435,7 +417,6 @@ JTable t, Object val, boolean sel, boolean foc, int row, int col) {
 
 class FarmDialog {
 
-```
 static void message(String title, String body) {
     JDialog d = base(title, 530, 375);
     JPanel  p = panel(title);
@@ -616,7 +597,6 @@ static JTextField styledField(String prefill) {
     f.selectAll();
     return f;
 }
-```
 
 }
 
@@ -630,7 +610,6 @@ private final JLabel      saveLabel;
 private       boolean     autoSaveOn = true;
 private javax.swing.Timer clearTimer;
 
-```
 public StatusBar() {
     setLayout(new BorderLayout(10, 0));
     setBorder(new EmptyBorder(3, 14, 3, 14));
@@ -711,7 +690,6 @@ public void notifyDirty() {
         saveLabel.setForeground(new Color(255, 202, 85));
     }
 }
-```
 
 }
 
@@ -721,7 +699,6 @@ public void notifyDirty() {
 
 public class FarmManagementSystem_Enhanced_AryanKandula {
 
-```
 static final ArrayList<StoreItem>     inventory = new ArrayList<>();
 static final ArrayList<Animal>        animals   = new ArrayList<>();
 static final ArrayList<ServiceRecord> services  = new ArrayList<>();
@@ -1159,6 +1136,14 @@ static void sellItem() {
         revenue += sale;
         markDirty();
         if (statusBar != null) statusBar.setMessage("Sold " + qty + "x " + item.getName() + " — $" + String.format("%.2f", sale));
+
+        // Warn if stock is critically low after this sale so the user knows to restock
+        int remaining = item.getQuantity();
+        if (remaining > 0 && remaining <= 2) {
+            FarmDialog.message("Low Stock Warning",
+                "\"" + item.getName() + "\" is running low.\n" +
+                "Only " + remaining + " unit" + (remaining == 1 ? "" : "s") + " left — consider restocking soon.");
+        }
     } catch (NumberFormatException e) { FarmDialog.message("Error", "Please enter a valid whole number."); }
 }
 
@@ -1743,6 +1728,5 @@ static void seedData() {
     services.get(0).markPaid();
     revenue += 45.00;
 }
-```
 
 }
