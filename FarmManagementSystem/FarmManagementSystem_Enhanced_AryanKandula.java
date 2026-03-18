@@ -6,6 +6,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Farm Management System
@@ -31,6 +33,7 @@ import java.util.Scanner;
  *  [03/16/2026 - 2:47 PM]  Aryan Kandula  - scheduleService(): MM/DD/YYYY regex date validation
  *  [03/17/2026 - 11:05 AM] Aryan Kandula  - sellItem(): low-stock warning when remaining qty
  *                                            drops to 2 or fewer units after a sale
+ *  [03/17/2026 - 12:38 PM] Aryan Kandula  - buildReport(): show generated timestamp in header
  * -------------------------------------------------------
  */
 
@@ -1574,7 +1577,6 @@ static String buildReport() {
     long   lowStock  = inventory.stream().filter(i -> i.getQuantity() > 0 && i.getQuantity() <= 3).count();
     long   outStock  = inventory.stream().filter(i -> i.getQuantity() == 0).count();
 
-    // CHANGE 2: Average sale price stats for animals
     String avgListing = animals.isEmpty() ? "0.00" :
         String.format("%.2f", animals.stream().mapToDouble(Animal::getSalePrice).average().orElse(0));
     String avgSold = soldCnt == 0 ? "0.00" :
@@ -1582,11 +1584,16 @@ static String buildReport() {
             .filter(Animal::isSold)
             .mapToDouble(Animal::getSalePrice).average().orElse(0));
 
+    // Stamp the exact time so we always know when this report snapshot was taken
+    String timestamp = LocalDateTime.now()
+        .format(DateTimeFormatter.ofPattern("MM/dd/yyyy  hh:mm a"));
+
     return String.join("\n",
         "================================================",
         "     FARM MANAGEMENT SYSTEM  -  REPORT",
         "                Aryan Kandula",
         "================================================",
+        "  Generated: " + timestamp,
         "",
         "  STORE & INVENTORY",
         "  " + "-".repeat(44),
