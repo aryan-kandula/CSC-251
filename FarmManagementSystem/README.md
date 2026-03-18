@@ -39,7 +39,7 @@ Data is **automatically saved to `farm_data.csv` on exit**, so nothing is ever l
 | Store / Inventory | Add, edit, remove items; sell; restock; color-coded stock levels |
 | Animal Sales | Add farm/breeder animals; sell; edit; filter available vs. sold |
 | Services & Payments | Schedule vet/grooming services; mark paid; edit/remove records |
-| Reports | Full summary: inventory, animals sold, revenue, outstanding balance |
+| Reports | Full summary with timestamp: inventory, animals sold, avg prices, revenue, outstanding balance |
 | Auto-Save | Data saves to `farm_data.csv` automatically when you close or exit |
 
 ---
@@ -59,6 +59,19 @@ Data is **automatically saved to `farm_data.csv` on exit**, so nothing is ever l
 
 ---
 
+## Input Validation
+
+The following guards have been added across all modules to keep data clean:
+
+| Location | Validation |
+|---|---|
+| Add Item | Rejects blank names, duplicate names (case-insensitive), zero or negative price and quantity |
+| Add Item | Warns and redirects to Restock if item already exists instead of creating a duplicate |
+| Sell Item | Warns when remaining stock drops to 2 or fewer units after a sale |
+| Schedule Service | Rejects dates that don't match MM/DD/YYYY format before saving the record |
+
+---
+
 ## Exit & Save Behavior
 
 Clicking **Exit** (header button) or closing the window (X) both follow the same flow:
@@ -71,6 +84,18 @@ Clicking **Exit** (header button) or closing the window (X) both follow the same
 | Auto-Save OFF, unsaved changes | Prompts: Save and Exit / Exit Without Saving / Cancel |
 
 A manual **Save Data to CSV** button is also available in the Reports tab.
+
+---
+
+## Reports
+
+The Reports tab generates a full business summary including:
+
+- Store inventory counts, low stock, and out-of-stock items
+- Animal sales totals, available count, average listing price, and average sold price
+- Service records totals, paid vs unpaid count, and outstanding balance
+- Total revenue recorded across all sales and paid services
+- **Generated timestamp** — every report shows the exact date and time it was last refreshed
 
 ---
 
@@ -98,6 +123,19 @@ A manual **Save Data to CSV** button is also available in the Reports tab.
 | `FarmManagementSystem_Enhanced_AryanKandula.java` | Main application source |
 | `farm_data.csv` | Data file — auto-loaded on start, auto-saved on exit |
 | `README.md` | This file |
+
+---
+
+## Recent Changes
+
+| Date | Change |
+|---|---|
+| 03/16/2026 | Added duplicate name guard in addItem() — case-insensitive check before inserting |
+| 03/16/2026 | Added average listing and sold price stats to the Reports section |
+| 03/16/2026 | Added MM/DD/YYYY date format validation in scheduleService() |
+| 03/17/2026 | Added low-stock warning in sellItem() when qty drops to 2 or fewer after a sale |
+| 03/17/2026 | Added generated timestamp to report header so every snapshot is dated |
+| 03/17/2026 | Expanded seedData() with a 4th sample service record, 2 of 4 now marked paid |
 
 ---
 
