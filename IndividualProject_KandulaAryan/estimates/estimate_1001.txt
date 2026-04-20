@@ -1,0 +1,72 @@
+=================================================================
+       CONCRETE PAD & CHAIN-LINK FENCE ESTIMATOR
+                   ESTIMATE REPORT
+=================================================================
+
+  PROJECT INFORMATION
+-----------------------------------------------------------------
+  Estimate #:                            1001
+  Project Name:                          John's Warehouse
+  Client Name:                           John Doe
+  Location:                              Main St, NC
+  Estimate Date:                         04/20/2026
+  Estimator:                             Aryan Kandula
+
+  CONCRETE PAD SUMMARY
+-----------------------------------------------------------------
+  Pad Dimensions:                        50 ft x 100 ft
+  Total Area:                            5000.00 sq ft
+  Slab Thickness:                        4.0 inches (0.3333 ft)
+  Raw Volume:                            61.73 cubic yards
+  Waste Factor:                          8.0%
+  Adjusted Volume (ordered):             66.67 cubic yards
+
+  LABOR (CONCRETE PAD)
+-----------------------------------------------------------------
+  Employees:                             2
+  Hours per Employee:                    8.0 hrs
+  Total Labor Hours:                     16.0 hrs
+  Labor Rate:                            $42.00 / hr
+  Labor Cost:                            $672.00
+
+  COST BREAKDOWN — CONCRETE PAD
+-----------------------------------------------------------------
+  Concrete Material:                     $11,000.00
+  Labor:                                 $672.00
+    Subtotal (before discount):          $11,672.00
+    PAD TOTAL:                           $11,672.00
+
+  CHAIN-LINK FENCE SUMMARY
+-----------------------------------------------------------------
+  Perimeter:                             300 ft
+  Height:                                6 ft
+  Post Spacing:                          10 ft on center
+  Mesh Gauge:                            11 gauge
+  Post Type:                             Galvanized
+  Fabric (net LF):                       300.00 LF
+  Fabric (w/ overage):                   315.00 LF (5.0% overage)
+  Line Posts:                            29
+  Terminal Posts:                        4
+  Total Posts:                           33
+  Top Treatment:                         None
+
+  COST BREAKDOWN — CHAIN-LINK FENCE
+-----------------------------------------------------------------
+  Fence Fabric:                          $2,126.25
+  Posts:                                 $742.50
+  Post Concrete:                         $280.50
+  Top Rail:                              $825.00
+  Hardware:                              $295.50
+  Fence Labor:                           $1,520.00
+    Subtotal (before discount):          $5,789.75
+    FENCE TOTAL:                         $5,789.75
+
+=================================================================
+    PAD TOTAL:                           $11,672.00
+    FENCE TOTAL:                         $5,789.75
+    *** PROJECT GRAND TOTAL ***:         $17,461.75
+=================================================================
+
+  This estimate is valid for 30 days from the date shown above.
+  Prices subject to change. Thank you for your business!
+

@@ -1,0 +1,5 @@
+estimate_id,date,project_name,client_name,location,estimator,pad_area_sqft,concrete_cy,pad_cost,fence_perimeter_ft,fence_cost,grand_total
+1001,04/19/2026,"Big Mart Warehouse","John Doe","Big Mart, NC",Aryan Kandula,5000.00,83.33,16672.00,300.00,5789.75,22461.75
+1001,04/22/2026,"Slab","John","John Main St",Mark,5000.00,66.67,11672.00,300.00,5789.75,17461.75
+1001,04/20/2026,"John's Warehouse Slab","John Doe","Main St, NC",Aryan Kandula,5000.00,66.67,11672.00,300.00,5949.75,17621.75
+1001,04/20/2026,"John's Warehouse","John Doe","Main St, NC",Aryan Kandula,5000.00,66.67,11672.00,300.00,5789.75,17461.75

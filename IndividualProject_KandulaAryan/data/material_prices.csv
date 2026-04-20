@@ -1,0 +1,24 @@
+material_key,description,unit,unit_price
+concrete_per_cy,Ready-Mix Concrete,Cubic Yard,165.00
+rebar_per_lf,Rebar (1/2 inch),Linear Foot,0.85
+wire_mesh_per_sqft,Wire Mesh (6x6 W2.9),Square Foot,0.45
+fence_fabric_4ft,Chain-Link Fabric 4ft (11.5 gauge),Linear Foot,4.50
+fence_fabric_5ft,Chain-Link Fabric 5ft (11.5 gauge),Linear Foot,5.25
+fence_fabric_6ft,Chain-Link Fabric 6ft (11 gauge),Linear Foot,6.75
+fence_fabric_8ft,Chain-Link Fabric 8ft (11 gauge),Linear Foot,9.50
+fence_fabric_10ft,Chain-Link Fabric 10ft (9 gauge),Linear Foot,13.00
+post_galvanized,Galvanized Steel Post,Each,22.50
+post_aluminum,Aluminum Post,Each,28.00
+post_schedule40,Schedule 40 Steel Post,Each,35.00
+post_concrete_bag,60lb Concrete Bag (post setting),Each,8.50
+top_rail,Top Rail (per linear foot),Linear Foot,2.75
+gate_single,Single Walk Gate (3-4ft),Each,185.00
+gate_double,Double Drive Gate (12-16ft),Each,650.00
+gate_sliding,Sliding Gate (12-40ft),Each,1250.00
+barbed_wire_1strand,Barbed Wire 1 Strand,Linear Foot,0.35
+barbed_wire_2strand,Barbed Wire 2 Strands,Linear Foot,0.65
+barbed_wire_3strand,Barbed Wire 3 Strands,Linear Foot,0.90
+razor_wire,Razor Wire Coil,Linear Foot,1.85
+privacy_slats,Privacy Slats,Linear Foot,2.20
+hardware_percentage,Fence Hardware (% of material),Percentage,0.08
+equipment_rental_day,Equipment Rental (per day),Day,450.00
